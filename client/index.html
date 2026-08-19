@@ -2,425 +2,208 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>AI Explain My Data</title>
+    <title>InsightFlow - AI-Powered Data Analysis</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css">
-
+    <link rel="stylesheet" href="css/hero.css">
 </head>
-
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-
+    <!-- Navigation -->
     <header class="navbar">
 
         <div class="logo">
-            AI Explain My Data
+            <span>Insight</span>Flow
         </div>
 
-        <nav>
+        <nav class="nav-links">
 
-            <a href="#home">Home</a>
+            <a href="index.html" class="nav-link active">
+                Home
+            </a>
 
-            <a href="#upload">Analyze</a>
+            <a href="pages/analyze.html" class="nav-link">
+                Analyze
+            </a>
 
-            <a href="#dashboard">Dashboard</a>
+            <a href="pages/login.html" class="nav-link">
+                Login / Sign Up
+            </a>
+
+            <a href="pages/profile.html" class="nav-link">
+                Profile
+            </a>
 
         </nav>
 
     </header>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- Hero Section -->
+    <main>
 
-    <section id="home" class="hero">
+        <section class="hero">
 
-        <div class="hero-content">
+            <div class="hero-content">
 
-            <p class="tag">
-                AI-POWERED DATA ANALYSIS
-            </p>
-
-            <h1>
-                Understand Your Data
-                <span>with AI</span>
-            </h1>
-
-            <p class="hero-text">
-
-                Upload your dataset and get
-                automatic statistics, data quality
-                analysis, visualizations and
-                AI-powered explanations.
-
-            </p>
-
-            <button
-                id="getStartedBtn"
-                class="primary-btn"
-            >
-                Get Started
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= UPLOAD ================= -->
-
-    <section id="upload" class="upload-section">
-
-        <div class="section-title">
-
-            <p class="tag">
-                STEP 1
-            </p>
-
-            <h2>
-                Upload Your Dataset
-            </h2>
-
-            <p>
-                Upload a CSV file to analyze your data.
-            </p>
-
-        </div>
-
-
-        <div class="upload-box">
-
-            <div class="upload-icon">
-                📊
-            </div>
-
-            <h3>
-                Select your CSV file
-            </h3>
-
-            <p>
-                Maximum file size: 10 MB
-            </p>
-
-
-            <input
-                type="file"
-                id="fileInput"
-                accept=".csv"
-            >
-
-
-            <button
-                id="uploadBtn"
-                class="primary-btn"
-            >
-                Analyze Dataset
-            </button>
-
-
-            <p
-                id="uploadStatus"
-                class="status"
-            ></p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= DASHBOARD ================= -->
-
-    <section
-        id="dashboard"
-        class="dashboard"
-    >
-
-        <div class="section-title">
-
-            <p class="tag">
-                DATA ANALYSIS
-            </p>
-
-            <h2>
-                Dataset Dashboard
-            </h2>
-
-            <p id="fileName">
-                Upload a dataset to begin analysis.
-            </p>
-
-        </div>
-
-
-        <!-- OVERVIEW -->
-
-        <div class="cards">
-
-            <div class="card">
-
-                <p>Total Rows</p>
-
-                <h3 id="rowCount">
-                    0
-                </h3>
-
-            </div>
-
-
-            <div class="card">
-
-                <p>Total Columns</p>
-
-                <h3 id="columnCount">
-                    0
-                </h3>
-
-            </div>
-
-
-            <div class="card">
-
-                <p>Missing Values</p>
-
-                <h3 id="missingCount">
-                    0
-                </h3>
-
-            </div>
-
-
-            <div class="card">
-
-                <p>Duplicate Rows</p>
-
-                <h3 id="duplicateCount">
-                    0
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <!-- COLUMN INFORMATION -->
-
-        <div class="dashboard-section">
-
-            <h2>
-                Column Analysis
-            </h2>
-
-
-            <div class="column-grid">
-
-                <div class="analysis-card">
-
-                    <h3>
-                        Numeric Columns
-                    </h3>
-
-                    <ul id="numericColumns">
-
-                        <li>
-                            No data available
-                        </li>
-
-                    </ul>
-
+                <div class="hero-badge">
+                    ✨ AI-Powered Data Intelligence
                 </div>
 
+                <h1>
+                    Turn Your Data
+                    <span>Into Insights</span>
+                </h1>
 
-                <div class="analysis-card">
-
-                    <h3>
-                        Categorical Columns
-                    </h3>
-
-                    <ul id="categoricalColumns">
-
-                        <li>
-                            No data available
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- STATISTICS -->
-
-        <div class="dashboard-section">
-
-            <h2>
-                Statistical Summary
-            </h2>
-
-            <div
-                id="statisticsContainer"
-                class="statistics-grid"
-            >
-
-                <p>
-                    Upload a dataset to see statistics.
+                <p class="hero-description">
+                    InsightFlow uses artificial intelligence to analyze
+                    your datasets, discover meaningful patterns, and
+                    explain complex data in simple language.
                 </p>
 
-            </div>
+                <div class="hero-buttons">
 
-        </div>
+                    <a href="pages/analyze.html"
+                       class="primary-btn">
+                        Analyze Your Data
+                    </a>
 
-
-        <!-- DATA PREVIEW -->
-
-        <div class="dashboard-section">
-
-            <h2>
-                Dataset Preview
-            </h2>
-
-            <div class="table-container">
-
-                <table>
-
-                    <thead id="previewHead">
-                    </thead>
-
-                    <tbody id="previewBody">
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-
-        <!-- CHARTS -->
-
-        <div class="dashboard-section">
-
-            <h2>
-                Data Visualizations
-            </h2>
-
-            <div class="charts-grid">
-
-                <div class="chart-card">
-
-                    <h3>
-                        Numeric Data
-                    </h3>
-
-                    <canvas
-                        id="numericChart"
-                    ></canvas>
-
-                </div>
-
-
-                <div class="chart-card">
-
-                    <h3>
-                        Category Distribution
-                    </h3>
-
-                    <canvas
-                        id="categoryChart"
-                    ></canvas>
-
-                </div>
-
-
-                <div class="chart-card">
-
-                    <h3>
-                        Average Values
-                    </h3>
-
-                    <canvas
-                        id="overviewChart"
-                    ></canvas>
+                    <a href="#features"
+                       class="secondary-btn">
+                        Explore Features
+                    </a>
 
                 </div>
 
             </div>
 
-        </div>
+
+            <!-- Hero Data Visualization -->
+            <div class="hero-visual">
+
+                <div class="data-card">
+
+                    <div class="card-header">
+
+                        <span>
+                            📊 InsightFlow Analysis
+                        </span>
+
+                        <span class="status">
+                            ● AI Ready
+                        </span>
+
+                    </div>
+
+                    <div class="data-row">
+                        <span>Rows</span>
+                        <strong>2,540</strong>
+                    </div>
+
+                    <div class="data-row">
+                        <span>Columns</span>
+                        <strong>12</strong>
+                    </div>
+
+                    <div class="data-row">
+                        <span>Data Quality</span>
+                        <strong>97.6%</strong>
+                    </div>
+
+                    <div class="insight-box">
+
+                        <strong>
+                            💡 InsightFlow AI Insight
+                        </strong>
+
+                        <p>
+                            A strong relationship was identified
+                            between customer age and purchase amount.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
-        <!-- AI SECTION -->
-
-        <div class="ai-section">
-
-            <p class="tag">
-                AI ANALYSIS
-            </p>
+        <!-- Features -->
+        <section id="features" class="features-section">
 
             <h2>
-                AI Data Explanation
+                What Can InsightFlow Do?
             </h2>
 
-            <p id="aiMessage">
+            <div class="feature-container">
 
-                Upload your dataset to receive
-                AI-powered explanations and insights.
+                <div class="feature-card">
 
-            </p>
+                    <div class="feature-icon">
+                        📁
+                    </div>
 
-            <button
-                id="aiAnalyzeBtn"
-                class="primary-btn"
-            >
-                Explain My Data with AI
-            </button>
+                    <h3>
+                        Upload Data
+                    </h3>
 
-            <div
-                id="aiResult"
-                class="ai-result"
-            ></div>
+                    <p>
+                        Upload your CSV dataset and let InsightFlow
+                        automatically understand its structure.
+                    </p>
 
-        </div>
-
-    </section>
+                </div>
 
 
-    <!-- ================= FOOTER ================= -->
+                <div class="feature-card">
 
-    <footer>
+                    <div class="feature-icon">
+                        🔍
+                    </div>
 
-        <p>
-            AI Explain My Data © 2026
-        </p>
+                    <h3>
+                        Analyze Data
+                    </h3>
 
-    </footer>
+                    <p>
+                        Discover statistics, patterns, correlations,
+                        and important characteristics in your data.
+                    </p>
 
-
-    <!-- Chart.js -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/chart.js"
-    ></script>
+                </div>
 
 
-    <!-- Application -->
+                <div class="feature-card">
 
-    <script
-        type="module"
-        src="js/app.js"
-    ></script>
+                    <div class="feature-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI Insights
+                    </h3>
+
+                    <p>
+                        Get complex data insights explained in
+                        simple and understandable language.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/navigation.js"></script>
 
 </body>
 
