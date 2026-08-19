@@ -1,66 +1,140 @@
-import {
-    uploadDataset
-} from "./api.js";
+/* =========================================
+   INSIGHTFLOW
+   CSV UPLOAD HANDLER
+========================================= */
 
 
-import {
-    displayDashboard
-} from "./dashboard.js";
+// =========================================
+// GET HTML ELEMENTS
+// =========================================
+
+const csvFile =
+    document.getElementById("csvFile");
+
+const dropZone =
+    document.getElementById("dropZone");
+
+const analyzeBtn =
+    document.getElementById("analyzeBtn");
+
+const filePreview =
+    document.getElementById("filePreview");
+
+const fileName =
+    document.getElementById("fileName");
+
+const fileSize =
+    document.getElementById("fileSize");
+
+const removeFile =
+    document.getElementById("removeFile");
+
+const analysisResult =
+    document.getElementById("analysisResult");
 
 
-const fileInput =
-    document.getElementById(
-        "fileInput"
-    );
+// =========================================
+// SELECTED FILE
+// =========================================
+
+let selectedFile = null;
 
 
-const uploadBtn =
-    document.getElementById(
-        "uploadBtn"
-    );
+
+// =========================================
+// FILE INPUT
+// =========================================
+
+csvFile.addEventListener(
+    "change",
+    function (event) {
+
+        const file =
+            event.target.files[0];
+
+        handleFile(file);
+
+    }
+);
 
 
-const uploadStatus =
-    document.getElementById(
-        "uploadStatus"
-    );
+
+// =========================================
+// DRAG OVER
+// =========================================
+
+dropZone.addEventListener(
+    "dragover",
+    function (event) {
+
+        event.preventDefault();
+
+        dropZone.classList.add(
+            "dragover"
+        );
+
+    }
+);
 
 
-let currentAnalysis = null;
+
+// =========================================
+// DRAG LEAVE
+// =========================================
+
+dropZone.addEventListener(
+    "dragleave",
+    function () {
+
+        dropZone.classList.remove(
+            "dragover"
+        );
+
+    }
+);
 
 
-export function getCurrentAnalysis() {
 
-    return currentAnalysis;
+// =========================================
+// DROP FILE
+// =========================================
 
-}
+dropZone.addEventListener(
+    "drop",
+    function (event) {
+
+        event.preventDefault();
+
+        dropZone.classList.remove(
+            "dragover"
+        );
 
 
-export function initializeUpload() {
-
-    uploadBtn.addEventListener(
-        "click",
-        handleUpload
-    );
-
-}
+        const file =
+            event.dataTransfer.files[0];
 
 
-async function handleUpload() {
+        handleFile(file);
 
-    const file =
-        fileInput.files[0];
+    }
+);
 
+
+
+// =========================================
+// HANDLE FILE
+// =========================================
+
+function handleFile(file) {
 
     if (!file) {
-
-        uploadStatus.textContent =
-            "Please select a CSV file.";
 
         return;
 
     }
 
+
+    // Check CSV format
 
     if (
         !file.name
@@ -68,84 +142,148 @@ async function handleUpload() {
             .endsWith(".csv")
     ) {
 
-        uploadStatus.textContent =
-            "Only CSV files are allowed.";
+        alert(
+            "Please upload a CSV file."
+        );
 
         return;
 
     }
 
 
-    const maxSize =
-        10 * 1024 * 1024;
+    // Store selected file
+
+    selectedFile = file;
+
+
+    // Display file name
+
+    fileName.textContent =
+        file.name;
+
+
+    // Display file size
+
+    fileSize.textContent =
+        formatFileSize(
+            file.size
+        );
+
+
+    // Show preview
+
+    filePreview.classList.remove(
+        "hidden"
+    );
+
+
+    // Enable analyze button
+
+    analyzeBtn.disabled = false;
+
+}
+
+
+
+// =========================================
+// FORMAT FILE SIZE
+// =========================================
+
+function formatFileSize(bytes) {
+
+    if (bytes < 1024) {
+
+        return bytes + " B";
+
+    }
 
 
     if (
-        file.size > maxSize
+        bytes <
+        1024 * 1024
     ) {
 
-        uploadStatus.textContent =
-            "File size must be less than 10 MB.";
-
-        return;
-
-    }
-
-
-    uploadBtn.disabled = true;
-
-    uploadBtn.textContent =
-        "Analyzing...";
-
-
-    uploadStatus.textContent =
-        "Uploading and analyzing your dataset...";
-
-
-    try {
-
-        const result =
-            await uploadDataset(file);
-
-
-        currentAnalysis =
-            result;
-
-
-        displayDashboard(result);
-
-
-        uploadStatus.textContent =
-            "Dataset analyzed successfully!";
-
-
-        document
-            .getElementById(
-                "dashboard"
-            )
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+        return (
+            bytes / 1024
+        ).toFixed(1) + " KB";
 
     }
 
-    catch (error) {
 
-        console.error(error);
-
-        uploadStatus.textContent =
-            error.message ||
-            "Failed to connect to server.";
-
-    }
-
-    finally {
-
-        uploadBtn.disabled = false;
-
-        uploadBtn.textContent =
-            "Analyze Dataset";
-
-    }
+    return (
+        bytes /
+        (1024 * 1024)
+    ).toFixed(1) + " MB";
 
 }
+
+
+
+// =========================================
+// REMOVE FILE
+// =========================================
+
+removeFile.addEventListener(
+    "click",
+    function () {
+
+        selectedFile = null;
+
+
+        csvFile.value = "";
+
+
+        filePreview.classList.add(
+            "hidden"
+        );
+
+
+        analyzeBtn.disabled = true;
+
+
+        analysisResult.classList.add(
+            "hidden"
+        );
+
+    }
+);
+
+
+
+// =========================================
+// ANALYZE BUTTON
+// =========================================
+
+analyzeBtn.addEventListener(
+    "click",
+    function () {
+
+        if (!selectedFile) {
+
+            return;
+
+        }
+
+
+        console.log(
+            "Selected file:",
+            selectedFile
+        );
+
+
+        /*
+         * Backend integration will be
+         * added in the next stage.
+         *
+         * The selected CSV file will be
+         * sent to the Express backend
+         * for data analysis.
+         */
+
+
+        alert(
+            "Dataset selected successfully. Backend analysis will be connected next."
+        );
+
+    }
+);

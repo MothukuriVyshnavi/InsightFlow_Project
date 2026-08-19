@@ -5,95 +5,341 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Analyze Data | InsightFlow</title>
+    <title>Analyze | InsightFlow</title>
 
-    <link rel="stylesheet"
-          href="../css/style.css">
 
-    <link rel="stylesheet"
-          href="../css/hero.css">
+    <!-- Main Website CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <!-- Analyze Page CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/analyze.css"
+    >
 
 </head>
 
+
 <body>
 
-<header class="navbar">
 
-    <div class="logo">
-        <span>Insight</span>Flow
-    </div>
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
 
-    <nav class="nav-links">
+    <header class="navbar">
 
-        <a href="../index.html"
-           class="nav-link">
-            Home
-        </a>
-
-        <a href="analyze.html"
-           class="nav-link active">
-            Analyze
-        </a>
-
-        <a href="login.html"
-           class="nav-link">
-            Login / Sign Up
-        </a>
-
-        <a href="profile.html"
-           class="nav-link">
-            Profile
-        </a>
-
-    </nav>
-
-</header>
-
-
-<main>
-
-    <section class="analyze-page">
-
-        <h1>
-            Analyze Your Data
-        </h1>
-
-        <p>
-            Upload your dataset and let InsightFlow
-            discover meaningful insights.
-        </p>
-
-        <div class="upload-box">
-
-            <h2>
-                Upload Dataset
-            </h2>
-
-            <p>
-                Supported format: CSV
-            </p>
-
-            <input
-                type="file"
-                id="csvFile"
-                accept=".csv"
-            >
-
-            <button id="analyzeBtn">
-                Analyze Dataset
-            </button>
-
+        <div class="logo">
+            <span>Insight</span>Flow
         </div>
 
-    </section>
 
-</main>
+        <nav class="nav-links">
+
+            <a
+                href="../index.html"
+                class="nav-link"
+            >
+                Home
+            </a>
 
 
-<script src="../js/navigation.js"></script>
+            <a
+                href="analyze.html"
+                class="nav-link active"
+            >
+                Analyze
+            </a>
+
+
+            <a
+                href="login.html"
+                class="nav-link"
+            >
+                Login / Sign Up
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN ANALYZE PAGE
+    ========================== -->
+
+    <main class="analyze-container">
+
+
+        <!-- =========================
+             PAGE INTRODUCTION
+        ========================== -->
+
+        <section class="analyze-header">
+
+
+            <div class="analyze-badge">
+
+                📊 Data Analysis
+
+            </div>
+
+
+            <h1>
+                Analyze Your Data
+            </h1>
+
+
+            <p>
+                Upload your dataset and let InsightFlow
+                discover meaningful patterns and insights.
+            </p>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             UPLOAD SECTION
+        ========================== -->
+
+        <section class="upload-section">
+
+
+            <div class="upload-card">
+
+
+                <!-- Icon -->
+
+                <div class="upload-icon">
+                    📁
+                </div>
+
+
+
+                <!-- Title -->
+
+                <h2>
+                    Upload Your Dataset
+                </h2>
+
+
+                <p>
+                    Upload a CSV file to begin your analysis.
+                </p>
+
+
+
+                <!-- =========================
+                     DROP ZONE
+                ========================== -->
+
+                <div
+                    class="drop-zone"
+                    id="dropZone"
+                >
+
+
+                    <p>
+                        Drag & drop your CSV file here
+                    </p>
+
+
+                    <span>
+                        or
+                    </span>
+
+
+
+                    <!-- Choose File -->
+
+                    <label
+                        for="csvFile"
+                        class="choose-file-btn"
+                    >
+
+                        Choose File
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="csvFile"
+                        accept=".csv"
+                        hidden
+                    >
+
+
+
+                    <p class="file-info">
+                        Supported format: CSV
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =========================
+                     FILE PREVIEW
+                ========================== -->
+
+                <div
+                    id="filePreview"
+                    class="file-preview hidden"
+                >
+
+
+                    <div>
+
+                        <strong id="fileName">
+                            filename.csv
+                        </strong>
+
+
+                        <span id="fileSize">
+                            0 KB
+                        </span>
+
+                    </div>
+
+
+
+                    <button
+                        type="button"
+                        id="removeFile"
+                        class="remove-btn"
+                    >
+
+                        Remove
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =========================
+                     ANALYZE BUTTON
+                ========================== -->
+
+                <button
+                    type="button"
+                    id="analyzeBtn"
+                    class="analyze-btn"
+                    disabled
+                >
+
+                    Analyze Dataset
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ANALYSIS RESULT
+        ========================== -->
+
+        <section
+            id="analysisResult"
+            class="analysis-result hidden"
+        >
+
+
+            <h2>
+                Dataset Analysis
+            </h2>
+
+
+
+            <div class="result-cards">
+
+
+                <div class="result-card">
+
+                    <span>
+                        Rows
+                    </span>
+
+                    <strong id="rowCount">
+                        -
+                    </strong>
+
+                </div>
+
+
+
+                <div class="result-card">
+
+                    <span>
+                        Columns
+                    </span>
+
+                    <strong id="columnCount">
+                        -
+                    </strong>
+
+                </div>
+
+
+
+                <div class="result-card">
+
+                    <span>
+                        Missing Values
+                    </span>
+
+                    <strong id="missingCount">
+                        -
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/navigation.js"></script>
+
+    <script src="../js/upload.js"></script>
+
 
 </body>
 

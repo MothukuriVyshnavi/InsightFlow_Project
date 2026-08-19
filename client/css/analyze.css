@@ -1,0 +1,693 @@
+/* =========================================
+   INSIGHTFLOW
+   ANALYZE PAGE
+========================================= */
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.analyze-container {
+
+    min-height: calc(100vh - 118px);
+
+    box-sizing: border-box;
+
+    padding: 30px 7% 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eef2ff
+        );
+
+    overflow: hidden;
+}
+
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.analyze-header {
+
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 22px;
+
+}
+
+
+
+.analyze-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 6px 15px;
+
+    border-radius: 30px;
+
+    background: #e0e7ff;
+
+    color: #4338ca;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.analyze-header h1 {
+
+    margin: 0 0 7px;
+
+    color: #111827;
+
+    font-size: 44px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+}
+
+
+
+.analyze-header p {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+}
+
+
+
+/* =========================================
+   UPLOAD SECTION
+========================================= */
+
+.upload-section {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+
+/* =========================================
+   UPLOAD CARD
+========================================= */
+
+.upload-card {
+
+    width: 750px;
+
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 22px 30px 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(15, 23, 42, 0.08);
+
+    text-align: center;
+
+}
+
+
+
+/* =========================================
+   UPLOAD ICON
+========================================= */
+
+.upload-icon {
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    margin-bottom: 7px;
+
+}
+
+
+
+/* =========================================
+   CARD HEADING
+========================================= */
+
+.upload-card h2 {
+
+    margin: 0 0 5px;
+
+    color: #111827;
+
+    font-size: 22px;
+
+    line-height: 1.2;
+
+}
+
+
+
+.upload-card > p {
+
+    margin: 0 0 14px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+
+
+
+/* =========================================
+   DROP ZONE
+========================================= */
+
+.drop-zone {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 18px 20px;
+
+    border: 2px dashed #c7d2fe;
+
+    border-radius: 12px;
+
+    background: #f8faff;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+
+.drop-zone:hover {
+
+    border-color: #4f46e5;
+
+    background: #eef2ff;
+
+}
+
+
+
+.drop-zone.dragover {
+
+    border-color: #4f46e5;
+
+    background: #e0e7ff;
+
+}
+
+
+
+.drop-zone p {
+
+    margin: 4px 0;
+
+    color: #475569;
+
+    font-size: 14px;
+
+}
+
+
+
+.drop-zone span {
+
+    display: block;
+
+    margin: 6px 0;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+}
+
+
+
+/* =========================================
+   CHOOSE FILE BUTTON
+========================================= */
+
+.choose-file-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 20px;
+
+    border-radius: 8px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+
+.choose-file-btn:hover {
+
+    background: #4338ca;
+
+    transform: translateY(-1px);
+
+}
+
+
+
+/* =========================================
+   FILE INFO
+========================================= */
+
+.file-info {
+
+    margin-top: 7px !important;
+
+    margin-bottom: 0 !important;
+
+    color: #94a3b8 !important;
+
+    font-size: 11px !important;
+
+}
+
+
+
+/* =========================================
+   FILE PREVIEW
+========================================= */
+
+.file-preview {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 11px;
+
+    padding: 9px 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 9px;
+
+    text-align: left;
+
+}
+
+
+
+.file-preview div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    min-width: 0;
+
+}
+
+
+
+.file-preview strong {
+
+    color: #1e293b;
+
+    font-size: 13px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+
+
+.file-preview span {
+
+    color: #64748b;
+
+    font-size: 11px;
+
+}
+
+
+
+/* =========================================
+   REMOVE BUTTON
+========================================= */
+
+.remove-btn {
+
+    border: none;
+
+    background: transparent;
+
+    color: #dc2626;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+}
+
+
+
+.remove-btn:hover {
+
+    color: #b91c1c;
+
+}
+
+
+
+/* =========================================
+   ANALYZE BUTTON
+========================================= */
+
+.analyze-btn {
+
+    width: 100%;
+
+    height: 43px;
+
+    margin-top: 13px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+
+.analyze-btn:hover:not(:disabled) {
+
+    background: #4338ca;
+
+    transform: translateY(-1px);
+
+}
+
+
+
+.analyze-btn:disabled {
+
+    background: #c7d2fe;
+
+    cursor: not-allowed;
+
+}
+
+
+
+/* =========================================
+   ANALYSIS RESULT
+========================================= */
+
+.analysis-result {
+
+    max-width: 800px;
+
+    margin: 20px auto 0;
+
+    text-align: center;
+
+}
+
+
+
+.analysis-result h2 {
+
+    margin: 0 0 14px;
+
+    color: #111827;
+
+    font-size: 21px;
+
+}
+
+
+
+.result-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+}
+
+
+
+.result-card {
+
+    padding: 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 10px;
+
+}
+
+
+
+.result-card span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+}
+
+
+
+.result-card strong {
+
+    color: #4f46e5;
+
+    font-size: 22px;
+
+}
+
+
+
+/* =========================================
+   HIDDEN
+========================================= */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .analyze-container {
+
+        padding-left: 5%;
+
+        padding-right: 5%;
+
+    }
+
+}
+
+
+
+@media (max-width: 700px) {
+
+    .analyze-container {
+
+        min-height: calc(100vh - 118px);
+
+        height: auto;
+
+        overflow: visible;
+
+        padding: 25px 5% 35px;
+
+    }
+
+
+    .analyze-header {
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .analyze-header h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .analyze-header p {
+
+        font-size: 14px;
+
+    }
+
+
+    .upload-card {
+
+        width: 100%;
+
+        padding: 20px;
+
+    }
+
+
+    .result-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+
+@media (max-height: 750px) and (min-width: 701px) {
+
+    .analyze-container {
+
+        padding-top: 20px;
+
+        padding-bottom: 20px;
+
+    }
+
+
+    .analyze-header {
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .analyze-header h1 {
+
+        font-size: 38px;
+
+    }
+
+
+    .upload-card {
+
+        padding-top: 18px;
+
+        padding-bottom: 18px;
+
+    }
+
+
+    .drop-zone {
+
+        padding-top: 14px;
+
+        padding-bottom: 14px;
+
+    }
+
+}
