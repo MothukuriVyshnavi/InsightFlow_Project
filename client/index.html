@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Explain My Data</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            AI Explain My Data
+        </div>
+
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#upload">Analyze</a>
+
+            <a href="#dashboard">Dashboard</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="tag">
+                AI-POWERED DATA ANALYSIS
+            </p>
+
+            <h1>
+                Understand Your Data
+                <span>with AI</span>
+            </h1>
+
+            <p class="hero-text">
+
+                Upload your dataset and get
+                automatic statistics, data quality
+                analysis, visualizations and
+                AI-powered explanations.
+
+            </p>
+
+            <button
+                id="getStartedBtn"
+                class="primary-btn"
+            >
+                Get Started
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= UPLOAD ================= -->
+
+    <section id="upload" class="upload-section">
+
+        <div class="section-title">
+
+            <p class="tag">
+                STEP 1
+            </p>
+
+            <h2>
+                Upload Your Dataset
+            </h2>
+
+            <p>
+                Upload a CSV file to analyze your data.
+            </p>
+
+        </div>
+
+
+        <div class="upload-box">
+
+            <div class="upload-icon">
+                📊
+            </div>
+
+            <h3>
+                Select your CSV file
+            </h3>
+
+            <p>
+                Maximum file size: 10 MB
+            </p>
+
+
+            <input
+                type="file"
+                id="fileInput"
+                accept=".csv"
+            >
+
+
+            <button
+                id="uploadBtn"
+                class="primary-btn"
+            >
+                Analyze Dataset
+            </button>
+
+
+            <p
+                id="uploadStatus"
+                class="status"
+            ></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section
+        id="dashboard"
+        class="dashboard"
+    >
+
+        <div class="section-title">
+
+            <p class="tag">
+                DATA ANALYSIS
+            </p>
+
+            <h2>
+                Dataset Dashboard
+            </h2>
+
+            <p id="fileName">
+                Upload a dataset to begin analysis.
+            </p>
+
+        </div>
+
+
+        <!-- OVERVIEW -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <p>Total Rows</p>
+
+                <h3 id="rowCount">
+                    0
+                </h3>
+
+            </div>
+
+
+            <div class="card">
+
+                <p>Total Columns</p>
+
+                <h3 id="columnCount">
+                    0
+                </h3>
+
+            </div>
+
+
+            <div class="card">
+
+                <p>Missing Values</p>
+
+                <h3 id="missingCount">
+                    0
+                </h3>
+
+            </div>
+
+
+            <div class="card">
+
+                <p>Duplicate Rows</p>
+
+                <h3 id="duplicateCount">
+                    0
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- COLUMN INFORMATION -->
+
+        <div class="dashboard-section">
+
+            <h2>
+                Column Analysis
+            </h2>
+
+
+            <div class="column-grid">
+
+                <div class="analysis-card">
+
+                    <h3>
+                        Numeric Columns
+                    </h3>
+
+                    <ul id="numericColumns">
+
+                        <li>
+                            No data available
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="analysis-card">
+
+                    <h3>
+                        Categorical Columns
+                    </h3>
+
+                    <ul id="categoricalColumns">
+
+                        <li>
+                            No data available
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="dashboard-section">
+
+            <h2>
+                Statistical Summary
+            </h2>
+
+            <div
+                id="statisticsContainer"
+                class="statistics-grid"
+            >
+
+                <p>
+                    Upload a dataset to see statistics.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- DATA PREVIEW -->
+
+        <div class="dashboard-section">
+
+            <h2>
+                Dataset Preview
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead id="previewHead">
+                    </thead>
+
+                    <tbody id="previewBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHARTS -->
+
+        <div class="dashboard-section">
+
+            <h2>
+                Data Visualizations
+            </h2>
+
+            <div class="charts-grid">
+
+                <div class="chart-card">
+
+                    <h3>
+                        Numeric Data
+                    </h3>
+
+                    <canvas
+                        id="numericChart"
+                    ></canvas>
+
+                </div>
+
+
+                <div class="chart-card">
+
+                    <h3>
+                        Category Distribution
+                    </h3>
+
+                    <canvas
+                        id="categoryChart"
+                    ></canvas>
+
+                </div>
+
+
+                <div class="chart-card">
+
+                    <h3>
+                        Average Values
+                    </h3>
+
+                    <canvas
+                        id="overviewChart"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AI SECTION -->
+
+        <div class="ai-section">
+
+            <p class="tag">
+                AI ANALYSIS
+            </p>
+
+            <h2>
+                AI Data Explanation
+            </h2>
+
+            <p id="aiMessage">
+
+                Upload your dataset to receive
+                AI-powered explanations and insights.
+
+            </p>
+
+            <button
+                id="aiAnalyzeBtn"
+                class="primary-btn"
+            >
+                Explain My Data with AI
+            </button>
+
+            <div
+                id="aiResult"
+                class="ai-result"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            AI Explain My Data © 2026
+        </p>
+
+    </footer>
+
+
+    <!-- Chart.js -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+    <!-- Application -->
+
+    <script
+        type="module"
+        src="js/app.js"
+    ></script>
+
+</body>
+
+</html>
