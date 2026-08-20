@@ -410,3 +410,239 @@ footer {
     }
 
 }
+/* =========================================
+   RESPONSIVE NAVBAR
+========================================= */
+
+.menu-toggle {
+    display: none;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    color: #111827;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 70px;
+
+        padding: 0 5%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+    }
+
+
+    .logo {
+        font-size: 25px;
+    }
+
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    .nav-links {
+
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+
+        left: 0;
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 15px 5% 20px;
+
+        background: #ffffff;
+
+        border-top: 1px solid #e5e7eb;
+
+        border-bottom: 1px solid #e5e7eb;
+
+        box-shadow:
+            0 8px 20px
+            rgba(0, 0, 0, 0.08);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5px;
+
+        z-index: 1000;
+    }
+
+
+    .nav-links.active {
+        display: flex;
+    }
+
+
+    .nav-link {
+
+        display: block;
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 12px 15px;
+
+        border-radius: 8px;
+
+        text-align: left;
+
+        font-size: 16px;
+    }
+
+
+    .nav-link:hover {
+
+        background: #f1f5f9;
+    }
+
+
+    .nav-link.active {
+
+        background: #eef2ff;
+
+        color: #4f46e5;
+    }
+
+}
+/* =========================================
+   MOBILE NAVBAR
+========================================= */
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    color: #111827;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+/* =========================================
+   MOBILE SCREEN
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .navbar {
+        position: relative;
+        height: 70px;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    /* Show hamburger */
+
+    .menu-toggle {
+        display: block !important;
+        z-index: 1001;
+    }
+
+
+    /* Hide navigation by default */
+
+    .nav-links {
+        display: none !important;
+
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 15px 5% 20px;
+
+        background: #ffffff;
+
+        border-top: 1px solid #e5e7eb;
+
+        border-bottom: 1px solid #e5e7eb;
+
+        box-shadow:
+            0 8px 20px
+            rgba(0, 0, 0, 0.08);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5px;
+
+        z-index: 1000;
+    }
+
+
+    /* Show menu only after clicking ☰ */
+
+    .nav-links.active {
+        display: flex !important;
+    }
+
+
+    /* Mobile links */
+
+    .nav-links .nav-link {
+
+        display: block;
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 12px 15px;
+
+        border-radius: 8px;
+
+        text-align: left;
+
+        font-size: 16px;
+    }
+
+
+    .nav-links .nav-link:hover {
+        background: #f1f5f9;
+    }
+
+
+    .nav-links .nav-link.active {
+        background: #eef2ff;
+        color: #4f46e5;
+    }
+
+}
