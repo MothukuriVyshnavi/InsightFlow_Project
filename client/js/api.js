@@ -1,67 +1,15 @@
-const API_URL =
-    "http://localhost:5000/api";
+const API_BASE_URL = "/api";
 
 
-export async function uploadDataset(file) {
-
-    const formData =
-        new FormData();
-
-    formData.append(
-        "dataset",
-        file
-    );
-
-
-    const response =
-        await fetch(
-            `${API_URL}/upload`,
-            {
-                method: "POST",
-                body: formData
-            }
-        );
-
-
-    const data =
-        await response.json();
-
-
-    if (!response.ok) {
-
-        throw new Error(
-            data.message ||
-            "Unable to upload dataset."
-        );
-
-    }
-
-
-    return data;
-
-}
-
-
-export async function getAIExplanation(
-    analysis
+async function apiRequest(
+    endpoint,
+    options = {}
 ) {
 
     const response =
         await fetch(
-            `${API_URL}/ai/explain`,
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type":
-                        "application/json"
-                },
-
-                body:
-                    JSON.stringify(
-                        analysis
-                    )
-            }
+            `${API_BASE_URL}${endpoint}`,
+            options
         );
 
 
@@ -73,7 +21,7 @@ export async function getAIExplanation(
 
         throw new Error(
             data.message ||
-            "AI analysis failed."
+            "Request failed."
         );
 
     }
@@ -82,3 +30,42 @@ export async function getAIExplanation(
     return data;
 
 }
+
+
+async function analyzeDataset(file) {
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "file",
+        file
+    );
+
+
+    return await apiRequest(
+        "/analyze",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+
+}
+
+
+async function getDashboardSummary() {
+
+    return await apiRequest(
+        "/dashboard/summary"
+    );
+
+}
+
+
+export {
+    apiRequest,
+    analyzeDataset,
+    getDashboardSummary
+};

@@ -1,5 +1,5 @@
-import fs from "fs";
-import Papa from "papaparse";
+const fs = require("fs");
+const Papa = require("papaparse");
 
 /* ==========================================
    BASIC HELPERS
@@ -558,7 +558,7 @@ function generateInsights(
    MAIN ANALYSIS FUNCTION
 ========================================== */
 
-export async function analyzeData(
+async function analyzeData(
     filePath
 ) {
 
@@ -699,3 +699,6 @@ export async function analyzeData(
             rows.slice(0, 10)
     };
 }
+module.exports = {
+    analyzeData
+};

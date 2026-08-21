@@ -1,20 +1,14 @@
-const express =
-    require("express");
+const express =require("express");
+const mongoose = require("mongoose");
+
+const cors =require("cors");
 
 
-const cors =
-    require("cors");
+const path =require("path");
 
 
-const path =
-    require("path");
-
-
-const uploadRoutes =
-    require(
-        "./routes/uploadRoutes"
-    );
-
+const uploadRoutes =require("./routes/uploadRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const {
     explainData
@@ -32,8 +26,17 @@ const app =
 
 
 const PORT =
-    process.env.PORT || 5000;
-
+    process.env.PORT || 5500;
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("MongoDB connected successfully.");
+    })
+    .catch((error) => {
+        console.error(
+            "MongoDB connection failed:",
+            error.message
+        );
+    });
 
 // ==============================
 // Middleware
@@ -49,7 +52,7 @@ app.use(
         limit: "10mb"
     })
 );
-
+app.use(express.static(path.join(__dirname, "../client")));
 
 // ==============================
 // Health Check
@@ -80,7 +83,14 @@ app.use(
     "/api",
     uploadRoutes
 );
+// ==============================
+// Authentication Routes
+// ==============================
 
+app.use(
+    "/api/auth",
+    authRoutes
+);
 
 // ==============================
 // AI Route

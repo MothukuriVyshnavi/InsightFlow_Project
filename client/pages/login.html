@@ -13,6 +13,104 @@
     <link rel="stylesheet"
           href="../css/style.css">
 
+    <style>
+
+        .auth-page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 430px;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .auth-container h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .auth-form label {
+            font-weight: 600;
+            margin-bottom: -10px;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 13px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(128, 128, 128, 0.4);
+            outline: none;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .auth-form input:focus {
+            border-color: #6366f1;
+        }
+
+        .auth-button {
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            background: #6366f1;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .auth-button:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        .auth-message {
+            display: none;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .auth-switch a {
+            color: #6366f1;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .auth-switch a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -33,7 +131,7 @@
             Analyze
         </a>
 
-        <a href="login.html">
+        <a href="login.html" class="active">
             Login / Sign Up
         </a>
 
@@ -46,51 +144,79 @@
 </header>
 
 
-<main>
+<main class="auth-page">
 
     <div class="auth-container">
 
         <h1>
-            Welcome to InsightFlow
+            Welcome Back
         </h1>
 
-        <p>
-            Login to analyze your datasets
-            and access your insights.
+        <p class="auth-subtitle">
+            Login to continue using InsightFlow
         </p>
 
-        <form id="loginForm">
+
+        <div id="authMessage"
+             class="auth-message">
+        </div>
+
+
+        <form id="loginForm"
+              class="auth-form">
+
+            <label for="email">
+                Email
+            </label>
 
             <input
                 type="email"
                 id="email"
-                placeholder="Email"
+                placeholder="Enter your email"
                 required
             >
+
+
+            <label for="password">
+                Password
+            </label>
 
             <input
                 type="password"
                 id="password"
-                placeholder="Password"
+                placeholder="Enter your password"
                 required
             >
 
-            <button type="submit">
+
+            <button
+                type="submit"
+                class="auth-button">
+
                 Login
+
             </button>
 
         </form>
 
-        <p>
-            Don't have an account?
-            <a href="signup.html">
-                Sign Up
-            </a>
-        </p>
+
+        <div class="auth-switch">
+
+            <p>
+                Don't have an account?
+                <a href="signup.html">
+                    Create an account
+                </a>
+            </p>
+
+        </div>
 
     </div>
 
 </main>
+
+
+<script src="../js/auth.js"></script>
 
 </body>
 
