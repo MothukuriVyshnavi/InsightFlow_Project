@@ -13,18 +13,134 @@
     <link rel="stylesheet"
           href="../css/style.css">
 
-    <link rel="stylesheet"
-          href="../css/hero.css">
+    <style>
+
+        .profile-page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .profile-card {
+            width: 100%;
+            max-width: 550px;
+            padding: 40px;
+            border-radius: 20px;
+
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 40px;
+
+            background: #6366f1;
+            color: white;
+        }
+
+        .profile-card h1 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .profile-subtitle {
+            text-align: center;
+            opacity: 0.7;
+            margin-bottom: 30px;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .info-item {
+            padding: 16px;
+
+            border-radius: 12px;
+
+            background: rgba(128, 128, 128, 0.08);
+
+            border: 1px solid rgba(128, 128, 128, 0.2);
+        }
+
+        .info-label {
+            display: block;
+
+            font-size: 13px;
+
+            opacity: 0.65;
+
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .logout-button {
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #ef4444;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .logout-button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+    </style>
 
 </head>
 
+
 <body>
+
+
+<!-- Navigation -->
 
 <header class="navbar">
 
     <div class="logo">
         <span>Insight</span>Flow
     </div>
+
 
     <nav class="nav-links">
 
@@ -40,7 +156,8 @@
             Login / Sign Up
         </a>
 
-        <a href="profile.html">
+        <a href="profile.html"
+           class="active">
             Profile
         </a>
 
@@ -49,51 +166,99 @@
 </header>
 
 
-<main>
+<!-- Profile -->
 
-    <section class="profile-page">
+<main class="profile-page">
 
-        <h1>
-            My InsightFlow Profile
+    <div class="profile-card">
+
+
+        <div class="profile-avatar">
+            👤
+        </div>
+
+
+        <h1 id="profileName">
+            Loading...
         </h1>
 
-        <div class="profile-card">
 
-            <div class="profile-avatar">
-                👤
-            </div>
+        <p class="profile-subtitle">
+            Your InsightFlow Profile
+        </p>
 
-            <h2 id="profileName">
-                User
-            </h2>
 
-            <p id="profileEmail">
-                user@example.com
-            </p>
+        <div class="profile-info">
 
-            <div class="profile-stats">
 
-                <div>
-                    <strong>0</strong>
-                    <span>Datasets</span>
-                </div>
+            <div class="info-item">
 
-                <div>
-                    <strong>0</strong>
-                    <span>Analyses</span>
-                </div>
+                <span class="info-label">
+                    Full Name
+                </span>
+
+                <span
+                    class="info-value"
+                    id="userName">
+
+                    Loading...
+
+                </span>
 
             </div>
 
-            <button id="logoutBtn">
-                Logout
-            </button>
+
+            <div class="info-item">
+
+                <span class="info-label">
+                    Email Address
+                </span>
+
+                <span
+                    class="info-value"
+                    id="userEmail">
+
+                    Loading...
+
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <span class="info-label">
+                    Account Status
+                </span>
+
+                <span
+                    class="info-value">
+
+                    ✓ Active
+
+                </span>
+
+            </div>
+
 
         </div>
 
-    </section>
+
+        <button
+            id="logoutButton"
+            class="logout-button">
+
+            Logout
+
+        </button>
+
+
+    </div>
 
 </main>
+
+
+<script src="../js/profile.js"></script>
 
 </body>
 
